@@ -41,11 +41,12 @@
 				<h2>Introduction to Vuln</h2>
 
 				<p>Welcome to Vuln, a free premium vulnerability tester. </p>
+				<form name="website" action="{{ url_for('home') }}" method="POST">
 
-				<!-- <input type="text" id="name" name="name" placeholder="Your name.."> -->
+					<input type="text" id="website" name="website" placeholder="www.example.com">
 
-				<!-- <input type="submit" value="Submit"> -->
-
+					<input type="submit" value="Submit">
+				</form>
 			</article>
 			<table>
 				{% for item in items %}
