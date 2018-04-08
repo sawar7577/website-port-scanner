@@ -1,7 +1,12 @@
 from libnmap.process import NmapProcess
 from libnmap.parser import NmapParser, NmapParserException
 
-
+class items(object):
+    def __init__(port,protocol,state,service):
+        self.port=port
+        self.protocol=protocol
+        self.state=state
+        self.service=service
 # start a new nmap scan on localhost with some specific options
 def do_scan(targets, options):
     parsed = None
@@ -15,8 +20,34 @@ def do_scan(targets, options):
         parsed = NmapParser.parse(nmproc.stdout)
     except NmapParserException as e:
         print("Exception raised while parsing scan: {0}".format(e.msg))
+    
+    list=[]
 
-    return parsed
+    for host in parsed.hosts:
+        if len(host.hostnames):
+            tmp_host = host.hostnames.pop()
+        else:
+            tmp_host = host.address
+
+        print("Nmap scan report for {0} ({1})".format(
+            tmp_host,
+            host.address))
+        print("Host is {0}.".format(host.status))
+        print("  PORT     STATE         SERVICE")
+        for serv in host.services:
+            item=items(str(serv.port),serv.protocol,serv.state,serv.service);
+            list.append(item)
+            pserv = "{0:>5s}/{1:3s}  {2:12s}  {3}".format(
+                    str(serv.port),
+                    serv.protocol,
+                    serv.state,
+                    serv.service)
+            if len(serv.banner):
+                pserv += " ({0})".format(serv.banner)
+            print(pserv)
+    print(nmap_report.summary)
+
+    return list
 
 
 # print scan results from a nmap report

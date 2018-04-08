@@ -5,7 +5,7 @@
 	<title>Vuln - a free vulnerability tester</title>
 	<link rel ="stylesheet" href="{{ url_for('static',filename='ind.css') }} ">
 	<!-- <link rel="stylesheet" href="../static/home.css" type="text/css" /> -->
-<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
 </head>
 
 <body>
@@ -39,13 +39,24 @@
 				
 
 				<h2>Introduction to Vuln</h2>
-			
+
 				<p>Welcome to Vuln, a free premium vulnerability tester. </p>
 
+				<!-- <input type="text" id="name" name="name" placeholder="Your name.."> -->
 
+				<!-- <input type="submit" value="Submit"> -->
 
 			</article>
-
+			<table>
+				{% for item in items %}
+				<tr>
+					<td>{item.port}</td>
+					<td>{item.protocol}</td>
+					<td>{item.state}</td>
+					<td>{item.service}</td>
+				</tr>
+				{% endfor}
+			</table>
 			
 			<footer class="clear">
 				<p>&copy; 2014 sitename. <a href="http://zypopwebtemplates.com/">Free CSS Templates</a> by ZyPOP</p>
