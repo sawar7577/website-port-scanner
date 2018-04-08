@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from scn import *
+import scn
 
 app=Flask(__name__)
 
@@ -8,7 +8,7 @@ def home():
 	# items=None
 	# if method == 'POST':
 	items=scn.do_scan("www.gitaniketan.org","sV")
-	return render_template("home.html",items)
+	return render_template("home.html",items=items)
 	# else:
 		# return render_template("home.html",items)
 
