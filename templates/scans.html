@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<title>Vuln - a free vulnerability tester</title>
+	<link rel ="stylesheet" href="{{ url_for('static',filename='ind.css') }} ">
+	<!-- <link rel="stylesheet" href="../static/home.css" type="text/css" /> -->
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+</head>
+
+<body>
+
+	<section id="body" class="width">
+		<aside id="sidebar" class="column-left">
+
+			<header>
+				<h1><a href="#">Vuln</a></h1>
+
+				<h2>PenTest Yourself. Don't Get Hacked!</h2>
+				
+			</header>
+
+			<nav id="mainnav">
+				<ul>
+					<li><a href="/">Home</a></li>
+					<li><a href="tcp">TCP Port Scan</a></li>
+					<li><a href="udp">UDP Port Scan</a></li>
+					<li><a href="#">SSL Heartbleed Scan</a></li>
+					<li><a href="#">Whois Lookup</a></li>
+				</ul>
+			</nav>
+
+			
+			
+		</aside>
+		<section id="content" class="column-right">
+
+			<article>
+				
+
+				<h2>Introduction to Vuln</h2>
+
+				<p>Welcome to Vuln, a free premium vulnerability tester. </p>
+				<form name="website" action="{{ url_for('home') }}" method="POST">
+
+					<input type="text" id="website" name="website" placeholder="www.example.com">
+
+					<input type="submit" value="Submit">
+				</form>
+			</article>
+			<table>
+				{% for item in items %}
+				<tr>
+					<td>{{item.port}}</td>
+					<td>{{item.protocol}}</td>
+					<td>{{item.state}}</td>
+					<td>{{item.service}}</td>
+				</tr>
+				{% endfor %}
+			</table>
+			
+			<footer class="clear">
+				<p>&copy; 2014 sitename. <a href="http://zypopwebtemplates.com/">Free CSS Templates</a> by ZyPOP</p>
+			</footer>
+
+		</section>
+
+		<div class="clear"></div>
+
+	</section>
+	
+
+</body>
+</html>
