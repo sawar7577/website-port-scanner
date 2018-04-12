@@ -1,10 +1,10 @@
+
 <!doctype html>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 	<title>Vuln - a free vulnerability tester</title>
 	<link rel ="stylesheet" href="{{ url_for('static',filename='ind.css') }} ">
-	<!-- <link rel="stylesheet" href="../static/home.css" type="text/css" /> -->
 	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
 </head>
 
@@ -22,9 +22,9 @@
 
 			<nav id="mainnav">
 				<ul>
-					<li><a href="/">Home</a></li>
-					<li><a href="tcp">TCP Port Scan</a></li>
-					<li><a href="udp">UDP Port Scan</a></li>
+					<li class="selected-item"><a href="home.html">Home</a></li>
+					<li><a href="#">TCP Port Scan</a></li>
+					<li><a href="#">UDP Port Scan</a></li>
 					<li><a href="#">SSL Heartbleed Scan</a></li>
 					<li><a href="#">Whois Lookup</a></li>
 				</ul>
@@ -41,7 +41,7 @@
 				<h2>Introduction to Vuln</h2>
 
 				<p>Welcome to Vuln, a free premium vulnerability tester. </p>
-				<form name="website" action="{{ url_for('home') }}" method="POST">
+				<form name="website" action="{{ url_for('index') }}" method="POST">
 
 					<input type="text" id="website" name="website" placeholder="www.example.com">
 
@@ -58,11 +58,6 @@
 				</tr>
 				{% endfor %}
 			</table>
-			
-			<footer class="clear">
-				<p>&copy; 2014 sitename. <a href="http://zypopwebtemplates.com/">Free CSS Templates</a> by ZyPOP</p>
-			</footer>
-
 		</section>
 
 		<div class="clear"></div>
