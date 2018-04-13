@@ -28,6 +28,9 @@
 				<h2>Introduction to Vuln</h2>
 				<p>Welcome to Vuln, a free premium vulnerability tester. </p>
 				<textarea readonly id="result">Starting testing for {{ target_site }}</textarea>
+				<div id="myProgress">
+					<div id="myBar"></div>
+				  </div>
 			</article>
 		</section>	
 		<div class="clear"></div>
@@ -53,10 +56,15 @@
 					document.getElementById("result").innerHTML += 'Summary: ' + data.summary + "%\n";
 					window.location.href="/res/{{ nmap_key}} ";
 				}
-				document.getElementById("result").innerHTML += 'Progress: ' + data.progress + "%\n";
+				// document.getElementById("result").innerHTML += 'Progress: ' + data.progress + "%\n";
+				    var elem = document.getElementById("myBar");
+				    elem.style.width = data.progress+"%";
+				    document.getElementById("myBar").innerHTML = data.progress+"%";
+
 			};		
 		};
 		var timer_id = setInterval(makeRequest, 1000);
 	</script>
 </body>
 </html>
+	

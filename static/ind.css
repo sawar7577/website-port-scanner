@@ -320,7 +320,19 @@ footer p a:hover
 	display: block;
 }
 
+#myProgress {
+    width: 100%;
+    background-color: grey;
+    font-color: white;
+}
+#myBar {
+    width: 1%;
+    width: 1%;
+    height: 30px;
+    color: white;
 
+    background-color: green;
+}
 
 
 

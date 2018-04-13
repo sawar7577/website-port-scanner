@@ -4,7 +4,8 @@ from libnmap.parser import NmapParser, NmapParserException
 from time import sleep
 import random
 import string
-
+import socket
+from ipwhois import IPWhois
 class items:
 	def __init__(self,port,protocol,state,service):
 		self.port=port
@@ -55,8 +56,8 @@ def index():
 		
 		key = "asdasd"
 
-		nmap_proc = NmapProcess(targets = website, options="sV")
-		nmap_proc.run_background()
+		nmap_proc = NmapProcess(targets = website, options="-sU")
+		nmap_proc.sudo_run_background()
 
 		nmap_queue[key] = nmap_proc
 		print(key in nmap_queue)
@@ -89,6 +90,15 @@ def update(nid):
 
 	return jsonify(data), 200
 
+@app.route('/look',methods=['POST','GET'])
+def look_up():
+	if request.method == 'POST':
+		website=request.form['website']	
+		ip = socket.gethostbyname(website)
+		obj = IPWhois(ip)
+		results = obj.lookup_whois()
+		print ("length is",len(results['nets']))
+		return render_template('look_up.html',results=results)
 
 if __name__ == "__main__":
 	app.run(debug=True)
