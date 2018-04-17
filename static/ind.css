@@ -323,7 +323,7 @@ footer p a:hover
 #myProgress {
     width: 100%;
     background-color: grey;
-    font-color: white;
+	color: white;
 }
 #myBar {
     width: 1%;
@@ -334,7 +334,10 @@ footer p a:hover
     background-color: green;
 }
 
+#form,#selector {
 
+	visibility: hidden;
+}
 
 @media screen and (max-width: 740px) 
 {

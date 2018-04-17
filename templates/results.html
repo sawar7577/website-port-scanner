@@ -15,10 +15,10 @@
 			</header>
 			<nav id="mainnav">
 				<ul>
-					<li class="selected-item"><a href="home.html">Home</a></li>
+					<li><a href="/">Home</a></li>
 					<li><a href="#">TCP Port Scan</a></li>
 					<li><a href="#">UDP Port Scan</a></li>
-					<li><a href="#">SSL Heartbleed Scan</a></li>
+					<!-- <li><a href="#">SSL Heartbleed Scan</a></li> -->
 					<li><a href="#">Whois Lookup</a></li>
 				</ul>
 			</nav>			
@@ -27,14 +27,15 @@
 			<article>
 				<h2>Introduction to Vuln</h2>
 				<p>Welcome to Vuln, a free premium vulnerability tester. </p>
-				<textarea readonly id="result">Starting testing for {{ target_site }}</textarea>
+				<!-- <textarea readonly id="result">Starting testing for {{ target_site }}</textarea> -->
 				<div id="myProgress">
 					<div id="myBar"></div>
-				  </div>
+				</div>
 			</article>
 		</section>	
 		<div class="clear"></div>
 	</section>
+	<!-- <script type="text/javascript" src="loader.js" ></script> -->
 	<script>
 		function makeRequest() 
 		{
@@ -49,22 +50,21 @@
 					clearTimeout(timer_id)
 					return;
 				}
-
+				
 				if(data.progress == 100) 
 				{
 					clearTimeout(timer_id)
-					document.getElementById("result").innerHTML += 'Summary: ' + data.summary + "%\n";
+				//	document.getElementById("result").innerHTML += 'Summary: ' + data.summary + "%\n";
 					window.location.href="/res/{{ nmap_key}} ";
 				}
-				// document.getElementById("result").innerHTML += 'Progress: ' + data.progress + "%\n";
-				    var elem = document.getElementById("myBar");
-				    elem.style.width = data.progress+"%";
-				    document.getElementById("myBar").innerHTML = data.progress+"%";
-
+				//document.getElementById("result").innerHTML = 'Progress: ' + data.progress + "%\n";
+				var elem = document.getElementById("myBar");
+				elem.style.width = data.progress+"%";
+				document.getElementById("myBar").innerHTML = data.progress+"%";
+				
 			};		
 		};
 		var timer_id = setInterval(makeRequest, 1000);
 	</script>
 </body>
 </html>
-	

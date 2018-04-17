@@ -15,10 +15,10 @@
 			</header>
 			<nav id="mainnav">
 				<ul>
-					<li class="selected-item"><a href="home.html">Home</a></li>
+					<li><a href="/">Home</a></li>
 					<li><a href="#">TCP Port Scan</a></li>
 					<li><a href="#">UDP Port Scan</a></li>
-					<li><a href="#">SSL Heartbleed Scan</a></li>
+					<!-- <li><a href="#">SSL Heartbleed Scan</a></li> -->
 					<li><a href="#">Whois Lookup</a></li>
 				</ul>
 			</nav>			
@@ -27,7 +27,7 @@
 			<article>
 				<h2>Introduction to Vuln</h2>
 				<p>Welcome to Vuln, a free premium vulnerability tester. </p>
-				<textarea readonly id="result">Starting testing for {{ target_site }}</textarea>
+				<!-- <textarea readonly id="result">Starting testing for {{ target_site }}</textarea> -->
             </article>
             <table>
                     {% for key,value in results['nets'][0].items() %}
